@@ -13,4 +13,10 @@ class MainController
         $argsArray = array('content' => $content,);
         return $app['twig']->render('index.html.twig', $argsArray);
     }
+
+    function aboutAction(Request $request, Application $app){
+        $content = 'About Page!';
+        $argsArray = array('content' => $content,);
+        return $app['twig']->render('about.html.twig', $argsArray);
+    }
 }
