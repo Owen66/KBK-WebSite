@@ -3,11 +3,39 @@
 <head>
     <title>KBK - Kevin’s Vegeburger Kitchen</title>
     <meta charset="UTF-8">
+    {% block stylesheets %}
+        <link href="/css/style.css" rel="stylesheet" />
+        <link href="/css/nav.css" rel="stylesheet" />
+    {% endblock %}
 </head>
 <body>
-{% block content %}
-
-{% endblock %}
-
+<div id="wrapper">
+<header>
+    <div id="logo"><h1>KBK</h1></div>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" class="{% block indexNavStyle %}{% endblock %}">Home</a>
+            </li>
+            <li>
+                <a href="/about" class="{% block aboutNavStyle %}{% endblock %}">About</a>
+            </li>
+            <li>
+                <a href="/products" class="{% block productsNavStyle %}{% endblock %}">Products</a>
+            </li>
+            <li>
+                <a href="/contact" class="{% block contactNavStyle %}{% endblock %}">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    <p>bottom</p>
+</footer>
+</div>
 </body>
 </html>

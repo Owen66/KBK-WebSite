@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block productsNavStyle %}current_page{% endblock %}
+
+{% block content %}
+    {% for p in products %}
+        <p><a href="/products/{{ p.id }}">{{ p.name }}</a></p>
+    {% endfor %}
+{% endblock %}
