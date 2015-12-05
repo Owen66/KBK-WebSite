@@ -2,12 +2,14 @@
   "require": {
     "silex/silex": "~1.3",
     "twig/twig": "^1.23",
-    "doctrine/orm": "2.4.*"
+    "doctrine/orm": "2.4.*",
+    "dflydev/doctrine-orm-service-provider": "*"
   },
 
   "autoload": {
     "psr-4": {
-      "": "src/"
+      "": "src/",
+      "mapping\\": "config/"
     }
   }
 }

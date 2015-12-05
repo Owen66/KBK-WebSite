@@ -4,7 +4,6 @@ class Category
 {
     protected $id;
     protected $name;
-
     protected $items;
 
     public function __construct()

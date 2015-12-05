@@ -16,4 +16,7 @@ return array(
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
+    'Dflydev\\Silex\\Provider\\DoctrineOrm' => array($vendorDir . '/dflydev/doctrine-orm-service-provider/src'),
+    'Dflydev\\Pimple\\Provider\\DoctrineOrm' => array($vendorDir . '/dflydev/doctrine-orm-service-provider/src'),
+    'Dflydev\\Cilex\\Provider\\DoctrineOrm' => array($vendorDir . '/dflydev/doctrine-orm-service-provider/src'),
 );

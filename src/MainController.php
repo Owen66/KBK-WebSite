@@ -1,8 +1,5 @@
 <?php
 
-namespace kbk;
-
-
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
