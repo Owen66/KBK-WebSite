@@ -10,9 +10,15 @@ class LoginController
         $username = $app['request']->server->get('PHP_AUTH_USER', false);
         $password = $app['request']->server->get('PHP_AUTH_PW');
 
-        if ('igor' === $username && 'password' === $password) {
-            $app['session']->set('user', array('username' => $username));
-            return $app->redirect('/admin');
+        $em = $app['orm.em'];
+        $userRepository = $em->getRepository('User');
+        $users = $userRepository->findAll();
+
+        foreach($users as $user){
+            if ($user->getName() === $username && $user->getPassword() === $password) {
+                $app['session']->set('user', array('username' => $username));
+                return $app->redirect('/admin');
+            }
         }
 
         $response = new Response();

@@ -32,4 +32,6 @@ $app->get('/item/{itemId}', 'ProductsController::itemAction');
 $app->get('/admin', 'AdminController::adminAction');
 $app->get('/login', 'LoginController::loginAction');
 
+$app->post('/createUser', 'AdminController::CreateUserAction');
+
 $app->run();
