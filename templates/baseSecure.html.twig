@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>KBK - Kevin’s Vegeburger Kitchen</title>
+    <title>KBK - Admin</title>
     <meta charset="UTF-8">
     {% block stylesheets %}
         <link href="/css/style.css" rel="stylesheet" />
         <link href="/css/nav.css" rel="stylesheet" />
+        <script src="/js/admin.js"></script>
     {% endblock %}
 </head>
 <body>
 <div id="wrapper">
 <header>
-    <div id="logo"><h1>KBK</h1></div>
+    <div id="logo"><h1>KBK Admin</h1></div>
     <nav>
         <ul>
             <li>
-                <a href="/" class="{% block indexNavStyle %}{% endblock %}">Home</a>
+                <a href="/admin" class="{% block indexNavStyle %}{% endblock %}">Home</a>
             </li>
             <li>
-                <a href="/about" class="{% block aboutNavStyle %}{% endblock %}">About</a>
+                <a href="/userAdmin" class="{% block aboutNavStyle %}{% endblock %}">User</a>
             </li>
             <li>
-                <a href="/products" class="{% block productsNavStyle %}{% endblock %}">Products</a>
+                <a href="/itemAdmin" class="{% block productsNavStyle %}{% endblock %}">Item</a>
             </li>
             <li>
-                <a href="/contact" class="{% block contactNavStyle %}{% endblock %}">Contact</a>
+                <a href="/categoryAdmin" class="{% block contactNavStyle %}{% endblock %}">Category</a>
             </li>
         </ul>
     </nav>

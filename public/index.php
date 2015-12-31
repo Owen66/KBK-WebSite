@@ -21,17 +21,32 @@ $conn = array('driver' => 'pdo_mysql', 'user' => 'root', 'password' => '', 'dbna
 $entityManager = EntityManager::create($conn, $config);
 $app['orm.em'] = $entityManager;
 
+//Main public Routes
 $app->get('/', 'MainController::indexAction');
 $app->get('/about', 'MainController::aboutAction');
 $app->get('/contact', 'MainController::contactAction');
-
+//Public Routes for Products
 $app->get('/products', 'ProductsController::productsAction');
 $app->get('/products/{cat}', 'ProductsController::catAction');
 $app->get('/item/{itemId}', 'ProductsController::itemAction');
-
-$app->get('/admin', 'AdminController::adminAction');
+//Entering Secure Area
 $app->get('/login', 'LoginController::loginAction');
+//Secure Routes
+$app->get('/admin', 'AdminController::adminAction');
+$app->get('/userAdmin', 'UserController::readAction');
+$app->get('/itemAdmin', 'AdminController::itemAction');
+$app->get('/categoryAdmin', 'AdminController::categoryAction');
+//Secure Actions
+$app->post('/createUser', 'UserController::CreateAction');
+$app->post('/updateUser', 'UserController::updateAction');
+$app->post('/deleteUser', 'UserController::deleteAction');
 
-$app->post('/createUser', 'AdminController::CreateUserAction');
+$app->post('/createItem', 'ItemController::CreateAction');
+$app->post('/updateItem', 'ItemController::updateAction');
+$app->post('/deleteItem', 'ItemController::deleteAction');
+
+$app->post('/createCategory', 'CategoryController::CreateAction');
+$app->post('/updateCategory', 'CategoryController::updateAction');
+$app->post('/deleteCategory', 'CategoryController::deleteAction');
 
 $app->run();

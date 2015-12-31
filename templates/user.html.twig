@@ -1,0 +1,99 @@
+{% extends "baseSecure.html.twig" %}
+
+{% block aboutNavStyle %}current_page{% endblock %}
+
+{% block content %}
+        <!-- Display Popup Button -->
+        <h1>Users</h1>
+        <button id="popup" onclick="div_show()">ADD</button>
+
+        <div id="abc">
+            <!-- Popup Div Starts Here -->
+            <div id="popupContact">
+                <!-- Contact Us Form -->
+                <form
+                        method="post"
+                        action="/createUser"
+                        >
+
+                    <h1>Create New User</h1>
+
+                    <p>
+                        Username:
+                        <input type="text" name="username" autofocus>
+                    </p>
+                    <p>
+                        Password:
+                        <input type="password" name="password">
+                    </p>
+                    <input type="submit" value="create">
+                </form>
+                <button onclick="div_hide()">Close</button>
+            </div>
+            <!-- Popup Div Ends Here -->
+        </div>
+
+    <div id="eabc">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+            <form
+                    method="post"
+                    action="/updateUser"
+                    >
+
+                <h1>Edit User</h1>
+
+                <p>
+                    Username:
+                    <input id="eName" type="text" name="username" autofocus>
+                </p>
+                <p>
+                    Password:
+                    <input id="ePassword" type="password" name="password">
+                </p>
+                <input id="eId" type="hidden" name="id">
+                <input type="submit" value="create">
+            </form>
+            <button onclick="e_div_hide()">Close</button>
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+
+        <table id="userTable">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    NAME
+                </th>
+                <th>
+                    PASSWORD
+                </th>
+            </tr>
+            {% for user in users %}
+                <tr id="{{ user.id }}">
+                    <td id = "id">
+                        {{ user.id }}
+                    </td>
+                    <td id = "name">
+                        {{ user.name }}
+                    </td>
+                    <td id = "password">
+                        {{ user.password }}
+                    </td>
+                    <td>
+                        <button onclick="editUser({{ user.id }})">EDIT</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteUser({{ user.id }})">DELETE</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
+
+
+{#<!-- Body Starts Here -->
+<body id="body""></body>#}

@@ -1,21 +1,12 @@
+{% extends "baseSecure.html.twig" %}
+
+{% block aboutNavStyle %}current_page{% endblock %}
 
 {% block content %}
-    <h1>Create New User</h1>
+    <h1>Welcome to the Secure Admin Area</h1>
 
-    <form
-            method="post"
-            action="/createUser"
-            >
-
-        <p>
-            Username:
-            <input type="text" name="username" autofocus>
-        </p>
-        <p>
-            Password:
-            <input type="password" name="password">
-        </p>
-        <input type="submit" value="create">
-    </form>
+    <p>
+         With in this area you can create, read, update, and delete data from the site.
+    </p>
 
 {% endblock %}
