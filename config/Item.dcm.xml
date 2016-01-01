@@ -10,6 +10,10 @@
 
         <field name="name" type="string" />
         <field name="photo" type="string" />
+        <field name="description" type="string" />
+        <field name="price" type="float" />
+        <field name="calories" type="integer" />
+        <field name="allergyInformation" type="string" />
 
         <many-to-one target-entity="Category" field="category" />
 

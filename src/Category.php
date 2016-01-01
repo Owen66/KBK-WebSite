@@ -1,9 +1,12 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Category
 {
     protected $id;
-    protected $name;
+    protected $title;
+    protected $summary;
     protected $items;
 
     public function __construct()
@@ -16,14 +19,14 @@ class Category
         return $this->id;
     }
 
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
     }
 
     public function getItems()
@@ -34,5 +37,15 @@ class Category
     public function setItems($items)
     {
         $this->items = $items;
+    }
+
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
     }
 }

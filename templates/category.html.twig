@@ -4,7 +4,7 @@
 
 {% block content %}
         <!-- Display Popup Button -->
-        <h1>Users</h1>
+        <h1>Categories</h1>
         <button id="popup" onclick="div_show()">ADD</button>
 
         <div id="abc">
@@ -13,18 +13,18 @@
                 <!-- Contact Us Form -->
                 <form
                         method="post"
-                        action="/createUser"
+                        action="/createCategory"
                         >
 
-                    <h1>Create New User</h1>
+                    <h1>Create New Category</h1>
 
                     <p>
-                        Username:
-                        <input type="text" name="username" autofocus>
+                        Title:
+                        <input type="text" name="title" autofocus>
                     </p>
                     <p>
-                        Password:
-                        <input type="password" name="password">
+                        Summary:
+                        <input type="text" name="summary">
                     </p>
                     <input type="submit" value="create">
                 </form>
@@ -39,18 +39,18 @@
             <!-- Contact Us Form -->
             <form
                     method="post"
-                    action="/updateUser"
+                    action="/updateCategory"
                     >
 
-                <h1>Edit User</h1>
+                <h1>Edit Category</h1>
 
                 <p>
-                    Username:
-                    <input id="eUsername" type="text" name="username" autofocus>
+                    Title:
+                    <input id="eTitle" type="text" name="title" autofocus>
                 </p>
                 <p>
-                    Password:
-                    <input id="ePassword" type="password" name="password">
+                    Summary:
+                    <input id="eSummary" type="text" name="summary">
                 </p>
                 <input id="eId" type="hidden" name="id">
                 <input type="submit" value="update">
@@ -60,34 +60,34 @@
         <!-- Popup Div Ends Here -->
     </div>
 
-        <table id="userTable">
+        <table id="categoryTable">
             <tr>
                 <th>
                     ID
                 </th>
                 <th>
-                    NAME
+                    TITLE
                 </th>
                 <th>
-                    PASSWORD
+                    SUMMARY
                 </th>
             </tr>
-            {% for user in users %}
-                <tr id="{{ user.id }}">
+            {% for category in categories %}
+                <tr id="{{ category.id }}">
                     <td id = "id">
-                        {{ user.id }}
+                        {{ category.id }}
                     </td>
-                    <td id = "username">
-                        {{ user.username }}
+                    <td id = "title">
+                        {{ category.title }}
                     </td>
-                    <td id = "password">
-                        {{ user.password }}
-                    </td>
-                    <td>
-                        <button onclick="editUser({{ user.id }})">EDIT</button>
+                    <td id = "summary">
+                        {{ category.summary }}
                     </td>
                     <td>
-                        <button onclick="deleteUser({{ user.id }})">DELETE</button>
+                        <button onclick="editCategory({{ category.id }})">EDIT</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteCategory({{ category.id }})">DELETE</button>
                     </td>
                 </tr>
             {% endfor %}

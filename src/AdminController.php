@@ -12,12 +12,4 @@ class AdminController
         $argsArray = array('content'=>'test');
         return $app['twig']->render('admin.html.twig', $argsArray);
     }
-
-    function userAction (Request $request, Application $app) {
-        if (null === $user = $app['session']->get('user')) {
-            return $app->redirect('/login');
-        }
-        $argsArray = array('content'=>'test');
-        return $app['twig']->render('user.html.twig', $argsArray);
-    }
 }

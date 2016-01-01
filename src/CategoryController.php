@@ -3,22 +3,22 @@
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class UserController
+class CategoryController
 {
     function createAction (Request $request, Application $app) {
         if (null === $user = $app['session']->get('user')) {
             return $app->redirect('/login');
         }
 
-        $newUser = new User();
-        $newUser->setUsername($request->get('username'));
-        $newUser->setPassword($request->get('password'));
+        $newCategory = new Category();
+        $newCategory->setTitle($request->get('title'));
+        $newCategory->setSummary($request->get('summary'));
 
         $em = $app['orm.em'];
-        $em->persist($newUser);
+        $em->persist($newCategory);
         $em->flush();
 
-        return $app->redirect('/userAdmin');
+        return $app->redirect('/categoryAdmin');
     }
 
     function readAction (Request $request, Application $app) {
@@ -27,11 +27,11 @@ class UserController
         }
 
         $em = $app['orm.em'];
-        $userRepository = $em->getRepository('User');
-        $users = $userRepository->findAll();
+        $categoryRepository = $em->getRepository('Category');
+        $categories = $categoryRepository->findAll();
 
-        $argsArray = array('users'=>$users);
-        return $app['twig']->render('user.html.twig', $argsArray);
+        $argsArray = array('categories'=>$categories);
+        return $app['twig']->render('category.html.twig', $argsArray);
     }
 
     function deleteAction (Request $request, Application $app) {
@@ -40,12 +40,12 @@ class UserController
         }
 
         $em = $app['orm.em'];
-        $userRepository = $em->getRepository('User');
-        $user = $userRepository->find($request->get('id'));
-        $em->remove($user);
+        $categoryRepository = $em->getRepository('Category');
+        $Category = $categoryRepository->find($request->get('id'));
+        $em->remove($Category);
         $em->flush();
 
-        return $app->redirect('/userAdmin');
+        return $app->redirect('/categoryAdmin');
 
     }
 
@@ -55,12 +55,12 @@ class UserController
         }
 
         $em = $app['orm.em'];
-        $userRepository = $em->getRepository('User');
-        $user = $userRepository->find($request->get('id'));
-        $user->setUsername($request->get('username'));
-        $user->setPassword($request->get('password'));
+        $categoryRepository = $em->getRepository('Category');
+        $Category = $categoryRepository->find($request->get('id'));
+        $Category->setTitle($request->get('title'));
+        $Category->setSummary($request->get('summary'));
         $em->flush();
 
-        return $app->redirect('/userAdmin');
+        return $app->redirect('/categoryAdmin');
     }
 }

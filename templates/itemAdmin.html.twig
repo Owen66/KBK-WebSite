@@ -1,0 +1,165 @@
+{% extends "baseSecure.html.twig" %}
+
+{% block aboutNavStyle %}current_page{% endblock %}
+
+{% block content %}
+        <!-- Display Popup Button -->
+        <h1>Items</h1>
+        <button id="popup" onclick="div_show()">ADD</button>
+
+        <div id="abc">
+            <!-- Popup Div Starts Here -->
+            <div id="popupContact">
+                <!-- Contact Us Form -->
+                <form
+                        method="post"
+                        action="/createItem"
+                        >
+
+                    <h1>Create New Item</h1>
+
+                    <p>
+                        Name:
+                        <input type="text" name="name" autofocus>
+                    </p>
+                    <p>
+                        Description:
+                        <input type="text" name="description">
+                    </p>
+                    <p>
+                        Price:
+                        <input type="number" name="price" autofocus>
+                    </p>
+                    <p>
+                        Calories:
+                        <input type="number" name="calories" autofocus>
+                    </p>
+                    <p>
+                        Allergy Information:
+                        <input type="text" name="allergyInformation" autofocus>
+                    </p>
+                    <p>
+                        Category:
+                        <input type="text" name="category" autofocus>
+                    </p>
+                    <p>
+                        Photo:
+                        <input type="file" name="photo" autofocus>
+                    </p>
+                    <input type="submit" value="create">
+                </form>
+                <button onclick="div_hide()">Close</button>
+            </div>
+            <!-- Popup Div Ends Here -->
+        </div>
+
+    <div id="eabc">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+            <form
+                    method="post"
+                    action="/updateItem"
+                    >
+
+                <h1>Edit Item</h1>
+
+                <p>
+                    Name:
+                    <input id="eName" type="text" name="name" autofocus>
+                </p>
+                <p>
+                    Description:
+                    <input id="eDescription" type="text" name="description">
+                </p>
+                <p>
+                    Price:
+                    <input id="ePrice" type="number" name="price" autofocus>
+                </p>
+                <p>
+                    Calories:
+                    <input id="eCalories" type="number" name="calories" autofocus>
+                </p>
+                <p>
+                    Allergy Information:
+                    <input id="eAllergyInformation" type="text" name="allergyInformation" autofocus>
+                </p>
+                <p>
+                    Category:
+                    <input id="eCategory" type="text" name="category" autofocus>
+                </p>
+                <p>
+                    Photo:
+                    <input id="ePhoto" type="file" name="photo" autofocus>
+                </p>
+                <input id="eId" type="hidden" name="id">
+                <input type="submit" value="update">
+            </form>
+            <button onclick="e_div_hide()">Close</button>
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+
+        <table id="itemTable">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    NAME
+                </th>
+                <th>
+                    DESCRIPTION
+                </th>
+                <th>
+                    PRICE
+                </th>
+                <th>
+                    CALORIES
+                </th>
+                <th>
+                    ALLERGY INFORMATION
+                </th>
+                <th>
+                    CATEGORY
+                </th>
+                <th>
+                    PHOTO
+                </th>
+            </tr>
+            {% for item in items %}
+                <tr id="{{ item.id }}">
+                    <td id = "id">
+                        {{ item.id }}
+                    </td>
+                    <td id = "name">
+                        {{ item.name }}
+                    </td>
+                    <td id = "description">
+                        {{ item.description }}
+                    </td>
+                    <td id = "price">
+                        {{ item.price }}
+                    </td>
+                    <td id = "calories">
+                        {{ item.calories }}
+                    </td>
+                    <td id = "allergyInformation">
+                        {{ item.allergyInformation }}
+                    </td>
+                    <td id = "category">
+                        {{ item.category }}
+                    </td>
+                    <td id = "photo">
+                        {{ item.photo }}
+                    </td>
+                    <td>
+                        <button onclick="editItem({{ item.id }})">EDIT</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteItem({{ item.id }})">DELETE</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

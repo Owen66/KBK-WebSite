@@ -4,6 +4,6 @@
 
 {% block content %}
     {% for p in products %}
-        <p><a href="/products/{{ p.id }}">{{ p.name }}</a></p>
+        <p><a href="/products/{{ p.id }}">{{ p.title }}</a></p>
     {% endfor %}
 {% endblock %}

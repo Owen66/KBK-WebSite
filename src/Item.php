@@ -7,6 +7,10 @@ class Item
     protected $id;
     protected $name;
     protected $photo;
+    protected $description;
+    protected $price;
+    protected $calories;
+    protected $allergyInformation;
     protected $category;
 
     public function getId()
@@ -34,6 +38,46 @@ class Item
         $this->photo = $photo;
     }
 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    public function getCalories()
+    {
+        return $this->calories;
+    }
+
+    public function setCalories($calories)
+    {
+        $this->calories = $calories;
+    }
+
+    public function getAllergyInformation()
+    {
+        return $this->allergyInformation;
+    }
+
+    public function setAllergyInformation($allergyInformation)
+    {
+        $this->allergyInformation = $allergyInformation;
+    }
+
     public function getCategory()
     {
         return $this->category;
@@ -43,5 +87,4 @@ class Item
     {
         $this->category = $category;
     }
-
 }
