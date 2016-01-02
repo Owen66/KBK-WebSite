@@ -42,7 +42,7 @@ table {
 }
 table th, td {
     padding: 0.5rem;
-    border: dashed;
+    border: groove;
 }
 
 #item img {

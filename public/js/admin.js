@@ -64,24 +64,27 @@ function editItem(id) {
 
     document.getElementById("eId").value = id;
     document.getElementById("eName").value = name.innerHTML.trim();
-    document.getElementById("description").value = description.innerHTML.trim();
-    document.getElementById("price").value = price.innerHTML.trim();
-    document.getElementById("calories").value = calories.innerHTML.trim();
-    document.getElementById("allergyInformation").value = allergyInformation.innerHTML.trim();
-    document.getElementById("category").value = category.innerHTML.trim();
-    document.getElementById("photo").value = photo.innerHTML.trim();
-
-
+    document.getElementById("eDescription").value = description.innerHTML.trim();
+    document.getElementById("ePrice").value = price.innerHTML;
+    document.getElementById("eCalories").value = calories.innerHTML;
+    document.getElementById("eAllergyInformation").value = allergyInformation.innerHTML.trim();
+    document.getElementById("eCategory").value = category.innerHTML;
+    //document.getElementById("ePhoto").value = photo.;
+    alert("deadbeef");
     e_div_show();
 
 }
 
 
 function deleteItem(id) {
-    var http_request = new XMLHttpRequest();
-    http_request.open("POST","/deleteItem",true);
-    http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http_request.send("id=" + id);
+    var valid = confirm("Are you sure you want to delete this item?");
+    if(valid == true) {
+        var http_request = new XMLHttpRequest();
+        http_request.open("POST","/deleteItem",true);
+        http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http_request.send("id=" + id);
+    }
+
     location.reload();
 }
 
