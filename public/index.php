@@ -7,10 +7,13 @@ $app->get('/about', 'MainController::aboutAction');
 $app->get('/contact', 'MainController::contactAction');
 //Public Routes for Products
 $app->get('/products', 'ProductsController::productsAction');
+$app->get('/productsUpdate', 'ProductsController::productsUpdateAction');
 $app->get('/products/{cat}', 'ProductsController::catAction');
 $app->get('/item/{itemId}', 'ProductsController::itemAction');
 //Entering Secure Area
 $app->get('/login', 'LoginController::loginAction');
+//Exit Secure Area
+$app->get('/logout', 'LoginController::logoutAction');
 //Secure Routes
 $app->get('/admin', 'AdminController::adminAction');
 $app->get('/userAdmin', 'UserController::readAction');
@@ -28,5 +31,7 @@ $app->post('/deleteItem', 'ItemController::deleteAction');
 $app->post('/createCategory', 'CategoryController::CreateAction');
 $app->post('/updateCategory', 'CategoryController::updateAction');
 $app->post('/deleteCategory', 'CategoryController::deleteAction');
+$app->post('/hasItems', 'CategoryController::hasItemsAction');
+
 
 $app->run();

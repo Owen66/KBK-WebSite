@@ -3,35 +3,74 @@
 {% block aboutNavStyle %}current_page{% endblock %}
 
 {% block content %}
-        <!-- Display Popup Button -->
-        <h1>Categories</h1>
-        <button id="popup" onclick="div_show()">ADD</button>
+    <!-- Display Popup Button -->
+    <h1>Categories</h1>
+    <button id="popup" onclick="div_show()">ADD</button>
+    <input type="text" id="search" placeholder="Type to search..." />
 
-        <div id="abc">
-            <!-- Popup Div Starts Here -->
-            <div id="popupContact">
-                <!-- Contact Us Form -->
-                <form
-                        method="post"
-                        action="/createCategory"
-                        >
+        <table id="adminTable" class="tablesorter">
+            <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    TITLE
+                </th>
+                <th>
+                    SUMMARY
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr id="{{ category.id }}">
+                    <td id = "id">
+                        {{ category.id }}
+                    </td>
+                    <td id = "title">
+                        {{ category.title }}
+                    </td>
+                    <td id = "summary">
+                        {{ category.summary }}
+                    </td>
+                    <td>
+                        <button onclick="editCategory({{ category.id }})">EDIT</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteCategory({{ category.id }})">DELETE</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-                    <h1>Create New Category</h1>
 
-                    <p>
-                        Title:
-                        <input type="text" name="title" autofocus>
-                    </p>
-                    <p>
-                        Summary:
-                        <input type="text" name="summary">
-                    </p>
-                    <input type="submit" value="create">
-                </form>
-                <button onclick="div_hide()">Close</button>
-            </div>
-            <!-- Popup Div Ends Here -->
+    <div id="abc">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+            <form
+                    method="post"
+                    action="/createCategory"
+                    >
+
+                <h1>Create New Category</h1>
+
+                <p>
+                    Title:
+                    <input type="text" name="title" autofocus>
+                </p>
+                <p>
+                    Summary:
+                    <input type="text" name="summary">
+                </p>
+                <input type="submit" value="create">
+            </form>
+            <button onclick="div_hide()">Close</button>
         </div>
+        <!-- Popup Div Ends Here -->
+    </div>
 
     <div id="eabc">
         <!-- Popup Div Starts Here -->
@@ -60,36 +99,4 @@
         <!-- Popup Div Ends Here -->
     </div>
 
-        <table id="categoryTable">
-            <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    TITLE
-                </th>
-                <th>
-                    SUMMARY
-                </th>
-            </tr>
-            {% for category in categories %}
-                <tr id="{{ category.id }}">
-                    <td id = "id">
-                        {{ category.id }}
-                    </td>
-                    <td id = "title">
-                        {{ category.title }}
-                    </td>
-                    <td id = "summary">
-                        {{ category.summary }}
-                    </td>
-                    <td>
-                        <button onclick="editCategory({{ category.id }})">EDIT</button>
-                    </td>
-                    <td>
-                        <button onclick="deleteCategory({{ category.id }})">DELETE</button>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
 {% endblock %}

@@ -9,8 +9,37 @@ class ProductsController
         $em = $app['orm.em'];
         $categoryRepository = $em->getRepository('Category');
         $categories = $categoryRepository->findAll();
-        $argsArray = array('products' => $categories,);
+        $categoriesPresentation = array();
+        foreach($categories as $category){
+            $keys = $category->getItems()->getKeys();
+            array_push($categoriesPresentation,array(
+                    'id' => $category->getId(),
+                    'title' => $category->getTitle(),
+                    'summary' => $category->getSummary(),
+                    'photo' => $category->getItems()->get(array_rand($keys))->getPhoto(),
+                )
+            );
+        }
+        $argsArray = array('products' => $categoriesPresentation,);
         return $app['twig']->render('products.html.twig', $argsArray);
+    }
+
+    function productsUpdateAction(Request $request, Application $app){
+        $em = $app['orm.em'];
+        $categoryRepository = $em->getRepository('Category');
+        $categories = $categoryRepository->findAll();
+        $categoriesPresentation = array();
+        foreach($categories as $category){
+            $keys = $category->getItems()->getKeys();
+            array_push($categoriesPresentation,array(
+                    'id' => $category->getId(),
+                    'title' => $category->getTitle(),
+                    'summary' => $category->getSummary(),
+                    'photo' => $category->getItems()->get(array_rand($keys))->getPhoto(),
+                )
+            );
+        }
+        return JSON_ENCODE($categoriesPresentation);
     }
 
     function catAction(Request $request, Application $app, $cat){

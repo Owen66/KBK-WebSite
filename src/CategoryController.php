@@ -29,9 +29,23 @@ class CategoryController
         $em = $app['orm.em'];
         $categoryRepository = $em->getRepository('Category');
         $categories = $categoryRepository->findAll();
-
         $argsArray = array('categories'=>$categories);
         return $app['twig']->render('category.html.twig', $argsArray);
+    }
+
+    function hasItemsAction (Request $request, Application $app) {
+        if (null === $user = $app['session']->get('user')) {
+            return $app->redirect('/login');
+        }
+
+        $em = $app['orm.em'];
+        $categoryRepository = $em->getRepository('Category');
+        $Category = $categoryRepository->find($request->get('id'));
+        $numItems = $Category->getItems()->count();
+        return $numItems;
+
+        //return $app->redirect('/categoryAdmin');
+
     }
 
     function deleteAction (Request $request, Application $app) {

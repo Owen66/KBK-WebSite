@@ -15,7 +15,7 @@ class LoginController
         $users = $userRepository->findAll();
 
         foreach($users as $user){
-            if ($user->getName() === $username && $user->getPassword() === $password) {
+            if ($user->getUsername() === $username && $user->getPassword() === $password) {
                 $app['session']->set('user', array('username' => $username));
                 return $app->redirect('/admin');
             }
@@ -27,4 +27,12 @@ class LoginController
         return $response;
 
     }
+
+    function logoutAction (Request $request, Application $app) {
+
+        $app['session']->set('user',array('username' => null));
+        return $app->redirect('/');
+
+    }
 }
+

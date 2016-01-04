@@ -10,6 +10,7 @@ $twig = new Twig_Environment($loader);
 
 $app = new Silex\Application();
 $app->register(new \Silex\Provider\TwigServiceProvider(), array('twig.path' => $myTemplatesPath));
+$app->register(new \Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider());

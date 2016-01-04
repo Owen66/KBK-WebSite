@@ -1,9 +1,13 @@
 {% extends "base.html.twig" %}
 
+{% block scripts %}
+    <script src="/js/public.js"></script>
+{% endblock %}
+
 {% block productsNavStyle %}current_page{% endblock %}
 
 {% block content %}
     {% for p in products %}
-        <p><a href="/products/{{ p.id }}">{{ p.title }}</a></p>
+        <p><img id={{ p.id }} src="img/{{ p.photo }}"><a href="/products/{{ p.id }}">{{ p.title }}</a></p>
     {% endfor %}
 {% endblock %}

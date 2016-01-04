@@ -6,12 +6,18 @@
     {% block stylesheets %}
         <link href="/css/style.css" rel="stylesheet" />
         <link href="/css/nav.css" rel="stylesheet" />
-        <script src="/js/admin.js"></script>
     {% endblock %}
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/jquery.tablesorter.js"></script>
+    <script src="/js/admin.js"></script>
+
 </head>
 <body>
+<a  id="login" href="/logout">Logout</a>
 <div id="wrapper">
 <header>
+
     <div id="logo"><h1>KBK Admin</h1></div>
     <nav>
         <ul>

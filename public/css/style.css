@@ -20,6 +20,14 @@ header {
     text-align: left;
     flex: 1;
 }
+
+#login {
+    display: block;
+    text-align: right;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+}
+
 main {
     padding-bottom:100px; /* Height of the footer element */
     color: #FFFFFF;
@@ -84,5 +92,10 @@ form {
     border:2px solid gray;
     border-radius:10px;
     background-color:#fff
+}
+
+#popup {
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
