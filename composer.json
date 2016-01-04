@@ -3,13 +3,18 @@
     "silex/silex": "~1.3",
     "twig/twig": "^1.23",
     "doctrine/orm": "2.4.*",
-    "dflydev/doctrine-orm-service-provider": "*"
+    "dflydev/doctrine-orm-service-provider": "*",
+    "phpunit/phpunit": "^5.1"
   },
-
   "autoload": {
     "psr-4": {
       "": "src/",
       "mapping\\": "config/"
     }
+  },
+
+  "scripts": {
+    "phpunit": "php phpunit.phar",
+    "phpunit-coverage": "php phpunit.phar --coverage-html src"
   }
 }

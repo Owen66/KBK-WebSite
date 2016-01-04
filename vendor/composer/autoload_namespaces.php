@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/lib'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
@@ -15,7 +17,6 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
-    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
     'Dflydev\\Silex\\Provider\\DoctrineOrm' => array($vendorDir . '/dflydev/doctrine-orm-service-provider/src'),
     'Dflydev\\Pimple\\Provider\\DoctrineOrm' => array($vendorDir . '/dflydev/doctrine-orm-service-provider/src'),
     'Dflydev\\Cilex\\Provider\\DoctrineOrm' => array($vendorDir . '/dflydev/doctrine-orm-service-provider/src'),

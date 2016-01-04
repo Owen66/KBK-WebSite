@@ -34,9 +34,9 @@ class Category
         return $this->items;
     }
 
-    public function setItems($items)
+    public function addItem($item)
     {
-        $this->items = $items;
+        $this->items[] = $item;
     }
 
     public function getSummary()
