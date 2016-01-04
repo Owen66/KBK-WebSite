@@ -4,6 +4,7 @@
     <title>KBK - Kevin’s Vegeburger Kitchen</title>
     <meta charset="UTF-8">
     {% block stylesheets %}
+        <link href='https://fonts.googleapis.com/css?family=Raleway:500|Indie+Flower' rel='stylesheet' type='text/css'>
         <link href="/css/style.css" rel="stylesheet" />
         <link href="/css/nav.css" rel="stylesheet" />
     {% endblock %}
@@ -15,7 +16,7 @@
 <div id="wrapper">
 <header>
 
-    <div id="logo"><h1>KBK</h1></div>
+    <div id="logo"><img src="/img/logo.png"></div>
     <nav>
         <ul>
             <li>
@@ -33,7 +34,7 @@
         </ul>
     </nav>
 </header>
-<main>
+<main class="public">
     {% block content %}
     {% endblock %}
 </main>

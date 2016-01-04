@@ -4,7 +4,19 @@
 
 {% block content %}
     <div id="item">
-        <h1>{{ item.name }}</h1>
-        <p><img src="/img/{{ item.photo }}"></p>
+        <section>
+            <p><img src="/img/{{ item.photo }}"></p>
+        </section>
+        <section>
+            <h1>{{ item.name }}</h1>
+            <p>Description: {{ item.description }}
+                </br>
+                Price: {{ item.price }}
+                </br>
+                Calories: {{ item.calories }}
+                </br>
+                Allergy Information: {{ item.allergyInformation }}
+            </p>
+        </section>
     </div>
 {% endblock %}

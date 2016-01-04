@@ -5,7 +5,7 @@
 {% block content %}
 
     <h1>Users</h1>
-    <button id="popup" onclick="div_show()">ADD</button>
+    <button id="popup" onclick="showCreate()">ADD</button>
     <input type="text" id="search" placeholder="Type to search..." />
 
         <table id="adminTable"  class="tablesorter">
@@ -46,11 +46,10 @@
         </table>
 
 
-    <!-- Display Popup Button -->
-    <div id="abc">
-        <!-- Popup Div Starts Here -->
-        <div id="popupContact">
-            <!-- Contact Us Form -->
+    <div id="create">
+
+        <div id="popupView">
+
             <form
                     method="post"
                     action="/createUser"
@@ -68,15 +67,15 @@
                 </p>
                 <input type="submit" value="create">
             </form>
-            <button onclick="div_hide()">Close</button>
+            <button onclick="hideCreate()">Close</button>
         </div>
-        <!-- Popup Div Ends Here -->
+
     </div>
 
-    <div id="eabc">
-        <!-- Popup Div Starts Here -->
-        <div id="popupContact">
-            <!-- Contact Us Form -->
+    <div id="edit">
+
+        <div id="popupView">
+
             <form
                     method="post"
                     action="/updateUser"
@@ -95,8 +94,8 @@
                 <input id="eId" type="hidden" name="id">
                 <input type="submit" value="update">
             </form>
-            <button onclick="e_div_hide()">Close</button>
+            <button onclick="hideEdit()">Close</button>
         </div>
-        <!-- Popup Div Ends Here -->
+
     </div>
 {% endblock %}

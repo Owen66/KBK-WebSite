@@ -7,7 +7,9 @@
 {% block productsNavStyle %}current_page{% endblock %}
 
 {% block content %}
+    <div id="list">
     {% for p in products %}
-        <p><img id={{ p.id }} src="img/{{ p.photo }}"><a href="/products/{{ p.id }}">{{ p.title }}</a></p>
+        <h2><a href="/products/{{ p.id }}">{{ p.title }}</a><img id={{ p.id }} src="img/{{ p.photo }}"></h2>
     {% endfor %}
+    </div>
 {% endblock %}

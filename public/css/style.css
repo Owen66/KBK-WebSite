@@ -4,6 +4,7 @@ body {
     padding:0;
     height:100%;
     background-color: #000000;
+    background-image: url("/img/Light-Wood-Background-Wallpaper.jpg");
     color: #666;
     font-family: sans-serif;
     text-align: center;
@@ -17,8 +18,12 @@ header {
     display: flex;
 }
 #logo {
-    text-align: left;
     flex: 1;
+    text-align: left;
+}
+
+#logo img {
+    width: 8rem;
 }
 
 #login {
@@ -30,7 +35,13 @@ header {
 
 main {
     padding-bottom:100px; /* Height of the footer element */
-    color: #FFFFFF;
+    color: #121212;
+    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Indie Flower', cursive;*/
+}
+
+main.public {
+    font-size: 26px;
 }
 
 main img {
@@ -42,6 +53,16 @@ main h1, button {
     display: inline;
 }
 
+#list img, #list a {
+    display: inline;
+    padding: 0.5rem;
+    border-radius:10px;
+    background-color: #121212;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 table {
     text-align: center;
     margin-top: 3rem;
@@ -51,12 +72,29 @@ table {
 table th, td {
     padding: 0.5rem;
     border: groove;
+    background-color: #121212;
+    color: white;
 }
 
 #item img {
-    width: 25rem;
+    width: 20rem;
+    text-align: left;
     height: auto;
+    padding: 0.5rem;
+    border-radius:10px;
+    background-color: #121212;
 }
+
+#item {
+    display: flex;
+}
+
+#item section {
+    text-align: center;
+    flex: 1;
+}
+
+
 footer {
     background: #121212;
     width:100%;
@@ -65,7 +103,7 @@ footer {
     bottom:0;
     left:0;
 }
-#abc, #eabc {
+#create, #edit {
     width:100%;
     height:100%;
     opacity:.95;
@@ -77,7 +115,7 @@ footer {
     overflow:auto
 }
 
-div#popupContact {
+div#popupView {
     position:absolute;
     left:50%;
     top:17%;

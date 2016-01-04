@@ -1,4 +1,38 @@
 
+$(document).ready(function()
+    {
+        $("#adminTable").tablesorter();
+
+        //Elegant Search Engine from http://stackoverflow.com/questions/20567426/search-html-table-with-js-and-jquery
+        $("#search").keyup(function(){
+            _this = this;
+            $.each($("#adminTable tbody").find("tr"), function() {
+                console.log($(this).text());
+                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    }
+);
+
+function showCreate() {
+    document.getElementById('create').style.display = "block";
+}
+
+function hideCreate(){
+    document.getElementById('create').style.display = "none";
+}
+
+function showEdit() {
+    document.getElementById('edit').style.display = "block";
+}
+
+function hideEdit(){
+    document.getElementById('edit').style.display = "none";
+}
+
 function editUser(id) {
 
     var userTable = document.getElementById('adminTable');
@@ -11,8 +45,7 @@ function editUser(id) {
     document.getElementById("eUsername").value = username.innerHTML.trim();
     document.getElementById("ePassword").value = password.innerHTML.trim();
 
-    //alert(name.innerHTML);
-    e_div_show();
+    showEdit();
 
 }
 
@@ -37,7 +70,7 @@ function editCategory(id) {
     document.getElementById("eTitle").value = title.innerHTML.trim();
     document.getElementById("eSummary").value = summary.innerHTML.trim();
 
-    e_div_show();
+    showEdit();
 
 }
 
@@ -88,9 +121,8 @@ function editItem(id) {
     document.getElementById("eCalories").value = calories.innerHTML;
     document.getElementById("eAllergyInformation").value = allergyInformation.innerHTML.trim();
     document.getElementById("eCategory").value = category.innerHTML;
-    //document.getElementById("ePhoto").value = photo.;
-    alert("deadbeef");
-    e_div_show();
+
+    showEdit();
 
 }
 
@@ -106,41 +138,3 @@ function deleteItem(id) {
 
     location.reload();
 }
-
-
-//Function To Display Popup
-function div_show() {
-    document.getElementById('abc').style.display = "block";
-}
-//Function to Hide Popup
-function div_hide(){
-    document.getElementById('abc').style.display = "none";
-}
-
-//Function To Display Popup
-function e_div_show() {
-    document.getElementById('eabc').style.display = "block";
-}
-//Function to Hide Popup
-function e_div_hide(){
-    document.getElementById('eabc').style.display = "none";
-}
-
-$(document).ready(function()
-    {
-        $("#adminTable").tablesorter();
-
-        // Write on keyup event of keyword input element
-        $("#search").keyup(function(){
-            _this = this;
-            // Show only matching TR, hide rest of them
-            $.each($("#adminTable tbody").find("tr"), function() {
-                console.log($(this).text());
-                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
-                    $(this).hide();
-                else
-                    $(this).show();
-            });
-        });
-    }
-);

@@ -3,9 +3,9 @@
 {% block aboutNavStyle %}current_page{% endblock %}
 
 {% block content %}
-    <!-- Display Popup Button -->
+
     <h1>Items</h1>
-    <button id="popup" onclick="div_show()">ADD</button>
+    <button id="popup" onclick="showCreate()">ADD</button>
     <input type="text" id="search" placeholder="Type to search..." />
 
         <table id="adminTable" class="tablesorter">
@@ -75,10 +75,10 @@
             </tbody>
         </table>
 
-    <div id="abc">
-        <!-- Popup Div Starts Here -->
-        <div id="popupContact">
-            <!-- Contact Us Form -->
+    <div id="create">
+
+        <div id="popupView">
+
             <form
                     method="post"
                     action="/createItem"
@@ -121,15 +121,15 @@
                 </p>
                 <input type="submit" value="create">
             </form>
-            <button onclick="div_hide()">Close</button>
+            <button onclick="hideCreate()">Close</button>
         </div>
-        <!-- Popup Div Ends Here -->
+
     </div>
 
-    <div id="eabc">
-        <!-- Popup Div Starts Here -->
-        <div id="popupContact">
-            <!-- Contact Us Form -->
+    <div id="edit">
+
+        <div id="popupView">
+
             <form
                     method="post"
                     action="/updateItem"
@@ -173,9 +173,9 @@
                 <input id="eId" type="hidden" name="id">
                 <input type="submit" value="update">
             </form>
-            <button onclick="e_div_hide()">Close</button>
+            <button onclick="hideEdit()">Close</button>
         </div>
-        <!-- Popup Div Ends Here -->
+
     </div>
 
 {% endblock %}
